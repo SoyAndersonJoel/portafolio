@@ -1,40 +1,40 @@
 "use client"
 
 import * as React from "react"
-import { Sparkles, ArrowRight, Bell, Clock, GraduationCap } from "lucide-react"
+import { Sparkles, ArrowRight, Bell, Clock } from "lucide-react"
 
 export function AiCapabilitiesSection() {
   const cards = [
     {
-      badge: "DISPONIBLE",
-      badgeColor: "bg-[#F59E0B]", // Amber matching Image 2
-      category: "INTELIGENCIA ARTIFICIAL · LLMS",
-      title: "Agentes Autónomos & Flujos con LLMs",
-      description: "Implementación de agentes que razonan y ejecutan tareas complejas integrando modelos Groq y OpenAI con llamadas a herramientas y memoria contextual.",
+      badge: "INTELIGENCIA ARTIFICIAL",
+      badgeColor: "bg-[#F59E0B]",
+      category: "AGENTES AUTÓNOMOS · TOOL CALLING · LLMS",
+      title: "Agentes de IA Autónomos & Flujos con LLMs",
+      description: "Implementación de agentes inteligentes que razonan, ejecutan llamadas a herramientas (Tool Calling), mantienen memoria y automatizan flujos de negocio complejos con Groq AI, Claude y OpenAI.",
       image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=800&auto=format&fit=crop",
-      statusText: "DISPONIBLE PARA PROYECTOS",
+      statusText: "ESPECIALIZACIÓN CLAVE · PROMPTING AVANZADO",
       buttonText: "Consultar solución",
       isPrimary: false,
     },
     {
-      badge: "ESPECIALIDAD",
-      badgeColor: "bg-[#10B981]", // Emerald matching UNAC card in Image 2
-      category: "BACKEND · ARQUITECTURA LIMPIA",
+      badge: "ALTO RENDIMIENTO",
+      badgeColor: "bg-[#10B981]",
+      category: "BACKEND ROBUSTO · NESTJS & POSTGRESQL",
       title: "Arquitectura Backend Escalable (NestJS)",
-      description: "Desarrollo de servicios modulares en NestJS, TypeScript y PostgreSQL con validaciones estrictas, middlewares de seguridad y pruebas de estrés con Artillery.",
+      description: "Desarrollo de microservicios y APIs modulares con TypeScript, middlewares estrictos de validación, Prisma/TypeORM, WebSockets para tiempo real y pruebas de carga con Artillery.",
       image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=800&auto=format&fit=crop",
-      statusText: "ARQUITECTURA DE ALTO RENDIMIENTO",
-      buttonText: "Ver detalles",
+      statusText: "ARQUITECTURA LIMPIA & SEGURIDAD",
+      buttonText: "Ver detalles / Contratar",
       isPrimary: true,
     },
     {
-      badge: "DISPONIBLE",
-      badgeColor: "bg-[#F59E0B]", // Amber matching Image 2
-      category: "FULL-STACK · SAAS & PAGOS",
+      badge: "FINTECH & MONETIZACIÓN",
+      badgeColor: "bg-[#F59E0B]",
+      category: "FULL-STACK · PAGOS & NOTIFICACIONES",
       title: "E-Commerce con IA & Pasarelas de Pago",
-      description: "Integración integral de pagos con Stripe Webhooks, notificaciones transaccionales automáticas vía Resend y SPAs ultra reactivas en React y Vite.",
+      description: "Integración de pagos con Stripe Webhooks para cobros seguros, notificaciones transaccionales automáticas con Resend y SPAs de alta reactividad en React y Vite.",
       image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=800&auto=format&fit=crop",
-      statusText: "PRODUCCIÓN / FULL-STACK",
+      statusText: "PRODUCCIÓN / CI-CD",
       buttonText: "Consultar solución",
       isPrimary: false,
     },
@@ -46,23 +46,23 @@ export function AiCapabilitiesSection() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="relative z-10 px-6 md:px-12 max-w-[1300px] mx-auto">
-        {/* Header identical to "Aprende conmigo / Mis cursos" */}
+        {/* Header: VALOR DIFERENCIAL */}
         <div className="flex flex-col items-center text-center mb-16 space-y-3">
           <div className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.25em] text-purple-300 uppercase">
-            <GraduationCap className="w-4 h-4" />
-            <span>ESPECIALIZACIÓN & SERVICIOS</span>
+            <Sparkles className="w-4 h-4 text-purple-400" />
+            <span>VALOR DIFERENCIAL · FULL-STACK & IA</span>
           </div>
 
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white">
-            Soluciones & Enfoque
+            Ingeniería de Software + <span className="bg-gradient-to-r from-purple-400 via-indigo-300 to-cyan-400 bg-clip-text text-transparent">Agentes de IA</span>
           </h2>
 
           <p className="text-zinc-300 max-w-2xl text-base md:text-lg leading-relaxed">
-            Ingeniería de software práctica para llevar tus ideas y plataformas al siguiente nivel. Arquitecturas directas al grano, con proyectos reales y sin relleno.
+            No solo escribo código básico: conecto modelos de lenguaje, configuro agentes que razonan y ejecutan herramientas, y estructuro arquitecturas limpias listas para escalar en producción.
           </p>
         </div>
 
-        {/* 3 Cards Grid identical to Image 2 */}
+        {/* 3 Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-[1200px] mx-auto">
           {cards.map((card, idx) => (
             <div
@@ -85,7 +85,7 @@ export function AiCapabilitiesSection() {
                   </span>
                 </div>
 
-                {/* Clock / Sparkle icon top-right */}
+                {/* Clock / Status icon top-right */}
                 <div className="absolute top-4 right-4 z-10 w-7 h-7 rounded-full bg-black/40 backdrop-blur-md flex items-center justify-center text-white/80 border border-white/20">
                   <Clock className="w-3.5 h-3.5" />
                 </div>

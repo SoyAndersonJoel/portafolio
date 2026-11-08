@@ -20,7 +20,7 @@ export function Footer() {
         <img
           alt="Engineering workspace"
           className="absolute inset-0 w-full h-full object-cover opacity-35"
-          src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop"
+          src="https://plus.unsplash.com/premium_photo-1661762857872-77960f34d91b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent" />
 
