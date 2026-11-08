@@ -28,3 +28,6 @@ export function LinkedinIcon({ className = "w-4 h-4" }: { className?: string }) 
   )
 }
 
+// Aliases for compatibility
+export const Github = GithubIcon
+export const Linkedin = LinkedinIcon
