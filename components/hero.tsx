@@ -65,7 +65,7 @@ export function Hero() {
             <div>
               <a
                 className="bg-white text-black hover:bg-zinc-200 font-extrabold px-8 py-4 rounded-full text-base tracking-wide transition-all hover:scale-105 shadow-[0_0_20px_rgba(255,255,255,0.15)] hover:shadow-[0_0_25px_rgba(255,255,255,0.35)] inline-flex items-center justify-center cursor-pointer"
-                href="#contacto"
+                href="/contacto"
               >
                 Hablemos
               </a>

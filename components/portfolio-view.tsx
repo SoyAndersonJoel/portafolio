@@ -17,7 +17,7 @@ export function PortfolioView() {
   React.useEffect(() => {
     const handleContactClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement
-      const trigger = target.closest("a[href='#contacto'], button[data-contact-trigger='true']")
+      const trigger = target.closest("a[href='/contacto'], button[data-contact-trigger='true']")
       if (trigger) {
         e.preventDefault()
         setContactModalOpen(true)

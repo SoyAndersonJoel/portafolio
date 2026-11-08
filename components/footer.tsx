@@ -1,6 +1,7 @@
 "use client"
 
 import * as React from "react"
+import Link from "next/link"
 import { ArrowRight, Mail, MapPin, Globe } from "lucide-react"
 import { GithubIcon, LinkedinIcon } from "@/components/icons"
 import { portfolioData } from "@/data/portfolio"
@@ -14,7 +15,7 @@ export function Footer() {
   }, [])
 
   return (
-    <footer id="contacto" className="w-full bg-black text-white relative z-20 border-t border-white/10">
+    <footer className="w-full bg-black text-white relative z-20 border-t border-white/10">
       {/* Call to action big banner with background image identical to uxjonathan */}
       <div className="relative w-full overflow-hidden min-h-[500px] flex items-center justify-center text-center px-6 pt-36 pb-20">
         <img
@@ -79,10 +80,10 @@ export function Footer() {
           <div className="space-y-3">
             <h4 className="font-semibold text-sm uppercase tracking-wider text-white">Navegación</h4>
             <ul className="space-y-2 text-sm text-zinc-400">
-              <li><a href="#" className="hover:text-white transition-colors">Inicio</a></li>
-              <li><a href="#proyectos" className="hover:text-white transition-colors">Proyectos</a></li>
-              <li><a href="#herramientas" className="hover:text-white transition-colors">Stack Tecnológico</a></li>
-              <li><a href="#servicios" className="hover:text-white transition-colors">Valor Diferencial</a></li>
+              <li><Link href="/" className="hover:text-white transition-colors">Inicio</Link></li>
+              <li><Link href="/proyectos" className="hover:text-white transition-colors">Proyectos</Link></li>
+              <li><Link href="/servicios" className="hover:text-white transition-colors">Servicios</Link></li>
+              <li><Link href="/contacto" className="hover:text-white transition-colors">Contáctame</Link></li>
             </ul>
           </div>
 

@@ -12,7 +12,7 @@ export function ProjectsSection() {
   const zIndexes = ["z-10", "z-20", "z-30"]
 
   return (
-    <section id="proyectos" className="w-full py-16 md:py-24 relative z-20 bg-[#fafafa] text-zinc-900 overflow-visible">
+    <section className="w-full py-16 md:py-24 relative z-20 bg-[#fafafa] text-zinc-900 overflow-visible">
       {/* Header */}
       <div className="flex flex-col items-center text-center mb-16 px-6 md:px-12 max-w-[1400px] mx-auto">
         <h2 className="text-4xl md:text-6xl font-black tracking-tight text-black mb-3">

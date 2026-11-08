@@ -41,7 +41,7 @@ export function AiCapabilitiesSection() {
   ]
 
   return (
-    <section id="servicios" className="w-full py-24 relative z-20 bg-gradient-to-b from-[#090214] via-[#1a0833] to-[#090214] text-white overflow-hidden">
+    <section className="w-full py-24 relative z-20 bg-gradient-to-b from-[#090214] via-[#1a0833] to-[#090214] text-white overflow-hidden">
       {/* Ambient background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-[140px] pointer-events-none" />
 
@@ -111,7 +111,7 @@ export function AiCapabilitiesSection() {
                   </div>
 
                   <a
-                    href="#contacto"
+                    href="/contacto"
                     className="w-full bg-black text-white hover:bg-zinc-800 font-bold text-xs sm:text-sm py-3 px-5 rounded-full transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md hover:scale-[1.02]"
                   >
                     {card.isPrimary ? (

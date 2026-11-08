@@ -46,24 +46,24 @@ export function Navbar() {
               Inicio
               <div className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-white" />
             </Link>
-            <a
+            <Link
               className="relative text-sm font-medium transition-colors py-1 whitespace-nowrap text-zinc-400 hover:text-white"
-              href="#proyectos"
+              href="/proyectos"
             >
               Proyectos
-            </a>
-            <a
+            </Link>
+            <Link
               className="relative text-sm font-medium transition-colors py-1 whitespace-nowrap text-zinc-400 hover:text-white"
-              href="#servicios"
+              href="/servicios"
             >
               Servicios
-            </a>
-            <a
+            </Link>
+            <Link
               className="relative text-sm font-medium transition-colors py-1 whitespace-nowrap text-zinc-400 hover:text-white"
-              href="#contacto"
+              href="/contacto"
             >
               Contáctame
-            </a>
+            </Link>
           </nav>
 
           {/* Actions */}
@@ -76,12 +76,12 @@ export function Navbar() {
             >
               GitHub
             </a>
-            <a
-              href="#contacto"
+            <Link
+              href="/contacto"
               className="px-4 py-2 rounded-xl text-sm font-bold border transition-all cursor-pointer bg-white border-white text-black hover:bg-zinc-200"
             >
               Hablemos
-            </a>
+            </Link>
             <button
               className="p-2 rounded-xl border transition-all cursor-pointer flex items-center justify-center shrink-0 border-white/30 text-white hover:bg-white/10"
               title="Español"
@@ -114,35 +114,35 @@ export function Navbar() {
           >
             Inicio
           </Link>
-          <a
-            href="#proyectos"
+          <Link
+            href="/proyectos"
             onClick={() => setMobileMenuOpen(false)}
             className="text-zinc-400 hover:text-white font-medium text-lg py-1"
           >
             Proyectos
-          </a>
-          <a
-            href="#servicios"
+          </Link>
+          <Link
+            href="/servicios"
             onClick={() => setMobileMenuOpen(false)}
             className="text-zinc-400 hover:text-white font-medium text-lg py-1"
           >
             Servicios
-          </a>
-          <a
-            href="#contacto"
+          </Link>
+          <Link
+            href="/contacto"
             onClick={() => setMobileMenuOpen(false)}
             className="text-zinc-400 hover:text-white font-medium text-lg py-1"
           >
             Contáctame
-          </a>
+          </Link>
           <div className="pt-2 flex flex-col gap-3">
-            <a
-              href="#contacto"
+            <Link
+              href="/contacto"
               onClick={() => setMobileMenuOpen(false)}
               className="text-center bg-white text-black font-bold py-3 rounded-xl"
             >
               Hablemos
-            </a>
+            </Link>
           </div>
         </div>
       )}
