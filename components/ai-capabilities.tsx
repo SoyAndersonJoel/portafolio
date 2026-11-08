@@ -1,79 +1,132 @@
 "use client"
 
 import * as React from "react"
-import { Sparkles } from "lucide-react"
+import { Sparkles, ArrowRight, Bell, Clock, GraduationCap } from "lucide-react"
 
 export function AiCapabilitiesSection() {
-  const capabilities = [
+  const cards = [
     {
+      badge: "DISPONIBLE",
+      badgeColor: "bg-[#F59E0B]", // Amber matching Image 2
+      category: "INTELIGENCIA ARTIFICIAL · LLMS",
       title: "Agentes Autónomos & Flujos con LLMs",
-      description: "Implementación de agentes que razonan y ejecutan tareas complejas integrando modelos Groq, OpenAI o Claude con herramientas externas.",
-      badge: "AI Agents",
-      techs: ["Groq AI", "Vercel AI SDK", "Prompt Engineering", "Tool Calling"],
+      description: "Implementación de agentes que razonan y ejecutan tareas complejas integrando modelos Groq y OpenAI con llamadas a herramientas y memoria contextual.",
+      image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=800&auto=format&fit=crop",
+      statusText: "DISPONIBLE PARA PROYECTOS",
+      buttonText: "Consultar solución",
+      isPrimary: false,
     },
     {
-      title: "Arquitecturas Backend de Alto Rendimiento",
-      description: "Desarrollo de servicios escalables en NestJS y Node.js con arquitecturas limpias, validaciones estrictas y desacoplamiento modular.",
-      badge: "Backend & Clean Code",
-      techs: ["NestJS", "TypeScript", "PostgreSQL", "Prisma ORM", "Docker"],
+      badge: "ESPECIALIDAD",
+      badgeColor: "bg-[#10B981]", // Emerald matching UNAC card in Image 2
+      category: "BACKEND · ARQUITECTURA LIMPIA",
+      title: "Arquitectura Backend Escalable (NestJS)",
+      description: "Desarrollo de servicios modulares en NestJS, TypeScript y PostgreSQL con validaciones estrictas, middlewares de seguridad y pruebas de estrés con Artillery.",
+      image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=800&auto=format&fit=crop",
+      statusText: "ARQUITECTURA DE ALTO RENDIMIENTO",
+      buttonText: "Ver detalles",
+      isPrimary: true,
     },
     {
-      title: "Sistemas en Tiempo Real & WebSockets",
-      description: "Infraestructura para eventos concurrentes, notificaciones push y sockets de baja latencia probados bajo estrés con Artillery.",
-      badge: "Realtime",
-      techs: ["WebSockets", "SSE", "Artillery", "Redis", "JWT Auth"],
-    },
-    {
-      title: "Integraciones de Pagos & Notificaciones",
-      description: "Procesamiento seguro de transacciones mediante Stripe Webhooks y sistemas transaccionales automatizados con Resend.",
-      badge: "Fintech & SaaS",
-      techs: ["Stripe", "Webhooks", "Resend", "EAV Architecture"],
+      badge: "DISPONIBLE",
+      badgeColor: "bg-[#F59E0B]", // Amber matching Image 2
+      category: "FULL-STACK · SAAS & PAGOS",
+      title: "E-Commerce con IA & Pasarelas de Pago",
+      description: "Integración integral de pagos con Stripe Webhooks, notificaciones transaccionales automáticas vía Resend y SPAs ultra reactivas en React y Vite.",
+      image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=800&auto=format&fit=crop",
+      statusText: "PRODUCCIÓN / FULL-STACK",
+      buttonText: "Consultar solución",
+      isPrimary: false,
     },
   ]
 
   return (
-    <section className="w-full py-20 relative z-20 border-t border-white/5">
-      <div className="px-6 md:px-12 max-w-[1400px] mx-auto">
-        <div className="flex flex-col items-center text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-xs font-semibold uppercase tracking-wider mb-3">
-            <Sparkles className="w-3.5 h-3.5" />
-            Valor Diferencial
+    <section id="servicios" className="w-full py-24 relative z-20 bg-gradient-to-b from-[#090214] via-[#1a0833] to-[#090214] text-white overflow-hidden">
+      {/* Ambient background glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-[140px] pointer-events-none" />
+
+      <div className="relative z-10 px-6 md:px-12 max-w-[1300px] mx-auto">
+        {/* Header identical to "Aprende conmigo / Mis cursos" */}
+        <div className="flex flex-col items-center text-center mb-16 space-y-3">
+          <div className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.25em] text-purple-300 uppercase">
+            <GraduationCap className="w-4 h-4" />
+            <span>ESPECIALIZACIÓN & SERVICIOS</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white mb-4">
-            Ingeniería de Software + <span className="bg-gradient-to-r from-purple-400 via-indigo-400 to-cyan-400 bg-clip-text text-transparent">IA Aplicada</span>
+
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white">
+            Soluciones & Enfoque
           </h2>
-          <p className="text-zinc-400 max-w-2xl text-base md:text-lg">
-            No solo escribo código: conecto modelos de Inteligencia Artificial para resolver problemas comerciales reales, automatizar operaciones y escalar sistemas.
+
+          <p className="text-zinc-300 max-w-2xl text-base md:text-lg leading-relaxed">
+            Ingeniería de software práctica para llevar tus ideas y plataformas al siguiente nivel. Arquitecturas directas al grano, con proyectos reales y sin relleno.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-          {capabilities.map((item, idx) => (
+        {/* 3 Cards Grid identical to Image 2 */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-[1200px] mx-auto">
+          {cards.map((card, idx) => (
             <div
               key={idx}
-              className="p-8 rounded-3xl bg-[#141417] border border-white/10 hover:border-purple-500/40 transition-all duration-300 flex flex-col justify-between space-y-6 group hover:-translate-y-1"
+              className="rounded-[26px] overflow-hidden bg-white text-zinc-900 border border-white/10 shadow-2xl flex flex-col justify-between group hover:-translate-y-2 transition-all duration-300"
             >
-              <div className="space-y-4">
-                <span className="inline-block px-3 py-1 rounded-full text-xs font-mono font-semibold bg-white/5 text-purple-300 border border-white/10">
-                  {item.badge}
-                </span>
-                <h3 className="text-xl font-bold text-white group-hover:text-purple-300 transition-colors">
-                  {item.title}
-                </h3>
-                <p className="text-zinc-400 text-sm leading-relaxed">
-                  {item.description}
-                </p>
+              {/* Top Image Part */}
+              <div className="relative h-[190px] sm:h-[210px] w-full overflow-hidden bg-zinc-900">
+                <img
+                  src={card.image}
+                  alt={card.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+
+                {/* Badge top-left */}
+                <div className="absolute top-4 left-4 z-10">
+                  <span className={`inline-block ${card.badgeColor} text-black font-extrabold text-[10px] tracking-wider px-3 py-1 rounded-full uppercase shadow-md`}>
+                    {card.badge}
+                  </span>
+                </div>
+
+                {/* Clock / Sparkle icon top-right */}
+                <div className="absolute top-4 right-4 z-10 w-7 h-7 rounded-full bg-black/40 backdrop-blur-md flex items-center justify-center text-white/80 border border-white/20">
+                  <Clock className="w-3.5 h-3.5" />
+                </div>
               </div>
 
-              <div className="flex flex-wrap gap-2 pt-2 border-t border-white/5">
-                {item.techs.map((t) => (
-                  <span
-                    key={t}
-                    className="text-xs px-2.5 py-1 rounded-md bg-black/40 text-zinc-300 font-mono border border-white/5"
+              {/* Bottom White Part */}
+              <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between bg-white text-zinc-900 space-y-4">
+                <div className="space-y-2">
+                  <div className="text-[11px] font-bold tracking-wider uppercase text-zinc-500">
+                    {card.category}
+                  </div>
+                  <h3 className="text-lg sm:text-xl font-extrabold text-black tracking-tight leading-snug">
+                    {card.title}
+                  </h3>
+                  <p className="text-zinc-600 text-xs sm:text-sm leading-relaxed">
+                    {card.description}
+                  </p>
+                </div>
+
+                <div className="pt-4 border-t border-zinc-100 space-y-3">
+                  <div className="text-[10px] font-bold tracking-wider uppercase text-zinc-400">
+                    {card.statusText}
+                  </div>
+
+                  <a
+                    href="#contacto"
+                    className="w-full bg-black text-white hover:bg-zinc-800 font-bold text-xs sm:text-sm py-3 px-5 rounded-full transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md hover:scale-[1.02]"
                   >
-                    {t}
-                  </span>
-                ))}
+                    {card.isPrimary ? (
+                      <>
+                        <span>{card.buttonText}</span>
+                        <ArrowRight className="w-4 h-4" />
+                      </>
+                    ) : (
+                      <>
+                        <Bell className="w-3.5 h-3.5" />
+                        <span>{card.buttonText}</span>
+                      </>
+                    )}
+                  </a>
+                </div>
               </div>
             </div>
           ))}
@@ -82,4 +135,3 @@ export function AiCapabilitiesSection() {
     </section>
   )
 }
-

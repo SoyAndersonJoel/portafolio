@@ -54,21 +54,9 @@ export function Navbar() {
             </a>
             <a
               className="relative text-sm font-medium transition-colors py-1 whitespace-nowrap text-zinc-400 hover:text-white"
-              href="#herramientas"
+              href="#servicios"
             >
               Servicios
-            </a>
-            <a
-              className="relative text-sm font-medium transition-colors py-1 whitespace-nowrap text-zinc-400 hover:text-white"
-              href="#sobre-mi"
-            >
-              Sobre mí
-            </a>
-            <a
-              className="relative text-sm font-medium transition-colors py-1 whitespace-nowrap text-zinc-400 hover:text-white"
-              href="#testimonios"
-            >
-              Impacto
             </a>
             <a
               className="relative text-sm font-medium transition-colors py-1 whitespace-nowrap text-zinc-400 hover:text-white"
@@ -134,25 +122,11 @@ export function Navbar() {
             Proyectos
           </a>
           <a
-            href="#herramientas"
+            href="#servicios"
             onClick={() => setMobileMenuOpen(false)}
             className="text-zinc-400 hover:text-white font-medium text-lg py-1"
           >
             Servicios
-          </a>
-          <a
-            href="#sobre-mi"
-            onClick={() => setMobileMenuOpen(false)}
-            className="text-zinc-400 hover:text-white font-medium text-lg py-1"
-          >
-            Sobre mí
-          </a>
-          <a
-            href="#testimonios"
-            onClick={() => setMobileMenuOpen(false)}
-            className="text-zinc-400 hover:text-white font-medium text-lg py-1"
-          >
-            Impacto
           </a>
           <a
             href="#contacto"
