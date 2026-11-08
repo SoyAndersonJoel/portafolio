@@ -37,15 +37,57 @@ export const portfolioData = {
     roleLine2: "ENGINEER",
     headlineBadge: "Hola 👋 soy Anderson Vilatuña",
     bio: "Full-Stack Engineer especializado en NestJS, React, TypeScript y arquitecturas escalables. Diseño y construyo productos web con IA, agentes y microservicios listos para producción.",
-    location: "Remoto / Ecuador",
+    location: "Quito, Ecuador",
     yearsExp: "2+",
     projectsCount: "10+",
     deployCount: "99.9%",
     whatsappNumber: "593999999999", // Placeholder editable
-    email: "anderson.vilatuna.dev@gmail.com",
-    github: "https://github.com",
-    linkedin: "https://linkedin.com",
+    email: "joel.vilatuna123@gmail.com",
+    github: "https://github.com/SoyAndersonJoel",
+    linkedin: "https://www.linkedin.com/in/anderson-joel-vilatuña",
   },
+  experience: [
+    {
+      period: "Abril/2026 – Mayo/2026",
+      role: "Líder Técnico & Backend Developer",
+      company: "Trackifly (Henry Bootcamp)",
+      description:
+        "Lideré el desarrollo técnico de una plataforma logística integral para la gestión eficiente de envíos y rastreo en tiempo real. Diseñé una arquitectura desacoplada y modular en NestJS bajo principios SOLID, e implementé el sistema de mensajería y alertas en vivo con WebSockets con latencia sub-segundo en un equipo multidisciplinario de 7 ingenieros bajo Scrum.",
+      isCurrent: true,
+      skills: ["NestJS", "WebSockets", "PostgreSQL", "TypeORM", "SOLID", "Scrum"],
+    },
+    {
+      period: "Agosto/2024 – Octubre/2024",
+      role: "Asistente Técnico de TI",
+      company: "Escuela Politécnica Nacional — DGIP",
+      description:
+        "Formé parte de la Dirección de Gestión de Información y Procesos (DGIP). Implementé la instalación masiva del agente GLPI y sistemas antivirus en equipos institucionales, gestioné la integración de estaciones al Active Directory asegurando políticas de autenticación y brindé soporte técnico de primer nivel con diagnóstico ágil de incidencias.",
+      isCurrent: false,
+      skills: ["Active Directory", "GLPI", "Soporte TI", "Seguridad Redes", "Diagnóstico de Hardware/Software"],
+    },
+  ],
+  education: [
+    {
+      period: "Abril/2022 – Octubre/2026",
+      degree: "Software Development",
+      institution: "Escuela Politécnica Nacional (EPN)",
+      description:
+        "Formación universitaria rigurosa enfocada en ingeniería de software, fundamentos de ciencias de la computación, estructuras de datos, diseño de algoritmos y arquitectura de bases de datos.",
+      status: "En curso / Titulación",
+    },
+    {
+      period: "Diciembre/2025 – Mayo/2026",
+      degree: "Full Stack Web Developer",
+      institution: "Henry Bootcamp",
+      description:
+        "+800 horas teórico-prácticas intensivas desarrollando aplicaciones web completas con tecnologías modernas: TypeScript, NestJS, React, PostgreSQL y metodologías ágiles Scrum.",
+      status: "Completado",
+    },
+  ],
+  languages: [
+    { language: "Español", level: "Nativo" },
+    { language: "Inglés", level: "B2 - Intermedio Profesional" },
+  ],
   tools: [
     { name: "NestJS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nestjs/nestjs-original.svg" },
     { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" },
