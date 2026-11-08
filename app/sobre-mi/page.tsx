@@ -155,15 +155,28 @@ export default function SobreMiPage() {
               </div>
             </div>
 
-            {/* Columna Derecha: Tarjeta Fotográfica limpia con aboutme.png y sin recuadro negro */}
-            <div className="lg:col-span-5 flex justify-center lg:justify-end">
-              <div className="w-full max-w-[420px] rounded-[32px] overflow-hidden bg-zinc-100 border border-zinc-200/80 shadow-[0_20px_50px_rgba(0,0,0,0.12)] hover:shadow-[0_25px_60px_rgba(0,0,0,0.18)] transition-all duration-500 group">
-                <div className="relative h-[480px] sm:h-[520px] w-full overflow-hidden bg-zinc-50">
-                  <img
-                    src="/aboutme.png"
-                    alt="Anderson Vilatuña"
-                    className="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-700 ease-out"
-                  />
+            {/* Columna Derecha: Retrato Circular Premium */}
+            <div className="lg:col-span-5 flex justify-center lg:justify-end items-center">
+              <div className="relative group">
+                {/* Aura ambiental suave detrás del círculo */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-purple-500/25 via-indigo-400/20 to-emerald-400/15 rounded-full blur-3xl transform group-hover:scale-110 transition-transform duration-700 -z-10" />
+
+                {/* Anillo exterior decorativo */}
+                <div className="p-2 sm:p-2.5 rounded-full bg-gradient-to-b from-zinc-200 via-white to-zinc-200/80 shadow-[0_20px_60px_rgba(0,0,0,0.12)] group-hover:shadow-[0_25px_70px_rgba(124,58,237,0.2)] transition-all duration-500">
+                  {/* Contenedor circular exacto 1:1 para imagen redonda */}
+                  <div className="w-[290px] h-[290px] sm:w-[350px] sm:h-[350px] md:w-[380px] md:h-[380px] rounded-full overflow-hidden bg-white relative flex items-center justify-center border border-zinc-100">
+                    <img
+                      src="/aboutme.png"
+                      alt="Anderson Vilatuña - Full-Stack Engineer"
+                      className="w-full h-full object-contain object-center rounded-full group-hover:scale-105 transition-transform duration-700 ease-out"
+                    />
+                  </div>
+                </div>
+
+                {/* Badge flotante inferior: Estado en vivo */}
+                <div className="absolute -bottom-3 sm:-bottom-4 left-1/2 -translate-x-1/2 px-4 py-2 rounded-full bg-white/95 backdrop-blur-md border border-zinc-200/90 shadow-lg flex items-center gap-2 whitespace-nowrap z-20 group-hover:-translate-y-0.5 transition-transform duration-300">
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                  <span className="text-xs font-semibold text-zinc-800">Disponible para proyectos</span>
                 </div>
               </div>
             </div>
