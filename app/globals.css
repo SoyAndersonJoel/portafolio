@@ -1,0 +1,116 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: var(--font-dm-sans), "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --color-background: #000000;
+  --color-surface: #111114;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #a1a1aa;
+  --color-text-tertiary: #71717a;
+  --color-border: #27272a;
+}
+
+:root {
+  --background: #000000;
+  --foreground: #ffffff;
+}
+
+body {
+  background-color: #000000;
+  color: #ffffff;
+  font-family: var(--font-dm-sans), "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow-x: hidden;
+}
+
+/* StarBorder Styles & Keyframes */
+.star-border-container {
+  border-radius: 20px;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+
+.border-gradient-bottom {
+  opacity: 0.7;
+  z-index: 0;
+  border-radius: 50%;
+  width: 300%;
+  height: 50%;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.7), transparent 70%);
+  animation: star-movement-bottom 4s linear infinite alternate;
+  position: absolute;
+  bottom: -12px;
+  right: -250%;
+}
+
+.border-gradient-top {
+  opacity: 0.7;
+  z-index: 0;
+  border-radius: 50%;
+  width: 300%;
+  height: 50%;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.7), transparent 70%);
+  animation: star-movement-top 4s linear infinite alternate;
+  position: absolute;
+  top: -12px;
+  left: -250%;
+}
+
+@keyframes star-movement-bottom {
+  0% {
+    opacity: 1;
+    transform: translate(0%);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-100%);
+  }
+}
+
+@keyframes star-movement-top {
+  0% {
+    opacity: 1;
+    transform: translate(0%);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(100%);
+  }
+}
+
+.star-border-glass {
+  position: relative;
+  border-radius: 20px;
+}
+
+.star-border-glass .inner-content {
+  border-radius: 20px;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  background: rgba(9, 9, 11, 0.6) !important;
+  border: 1px solid rgba(63, 63, 70, 0.4) !important;
+  padding: 24px !important;
+  color: #fff;
+  z-index: 1;
+  position: relative;
+}
+
+/* Keyframes for infinite tools marquee */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
