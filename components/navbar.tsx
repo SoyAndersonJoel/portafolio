@@ -2,10 +2,19 @@
 
 import * as React from "react"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { Globe, Menu, X } from "lucide-react"
 import { portfolioData } from "@/data/portfolio"
 
+const navLinks = [
+  { label: "Inicio", href: "/" },
+  { label: "Proyectos", href: "/proyectos" },
+  { label: "Sobre mí", href: "/sobre-mi" },
+  { label: "Contáctame", href: "/contacto" },
+]
+
 export function Navbar() {
+  const pathname = usePathname()
   const [scrolled, setScrolled] = React.useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false)
 
@@ -39,31 +48,23 @@ export function Navbar() {
 
           {/* Navigation links */}
           <nav className="hidden md:flex flex-1 justify-center items-center gap-8 py-2">
-            <Link
-              className="relative text-sm font-medium transition-colors py-1 whitespace-nowrap text-white"
-              href="/"
-            >
-              Inicio
-              <div className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-white" />
-            </Link>
-            <Link
-              className="relative text-sm font-medium transition-colors py-1 whitespace-nowrap text-zinc-400 hover:text-white"
-              href="/proyectos"
-            >
-              Proyectos
-            </Link>
-            <Link
-              className="relative text-sm font-medium transition-colors py-1 whitespace-nowrap text-zinc-400 hover:text-white"
-              href="/servicios"
-            >
-              Servicios
-            </Link>
-            <Link
-              className="relative text-sm font-medium transition-colors py-1 whitespace-nowrap text-zinc-400 hover:text-white"
-              href="/contacto"
-            >
-              Contáctame
-            </Link>
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href
+              return (
+                <Link
+                  key={link.href}
+                  className={`relative text-sm font-medium transition-colors py-1 whitespace-nowrap ${
+                    isActive ? "text-white" : "text-zinc-400 hover:text-white"
+                  }`}
+                  href={link.href}
+                >
+                  {link.label}
+                  {isActive && (
+                    <div className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-white" />
+                  )}
+                </Link>
+              )
+            })}
           </nav>
 
           {/* Actions */}
@@ -107,34 +108,19 @@ export function Navbar() {
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div className="w-full bg-[#09090b]/98 backdrop-blur-xl border-b border-zinc-800 px-6 py-6 flex flex-col gap-4 pointer-events-auto md:hidden">
-          <Link
-            href="/"
-            onClick={() => setMobileMenuOpen(false)}
-            className="text-white font-medium text-lg py-1"
-          >
-            Inicio
-          </Link>
-          <Link
-            href="/proyectos"
-            onClick={() => setMobileMenuOpen(false)}
-            className="text-zinc-400 hover:text-white font-medium text-lg py-1"
-          >
-            Proyectos
-          </Link>
-          <Link
-            href="/servicios"
-            onClick={() => setMobileMenuOpen(false)}
-            className="text-zinc-400 hover:text-white font-medium text-lg py-1"
-          >
-            Servicios
-          </Link>
-          <Link
-            href="/contacto"
-            onClick={() => setMobileMenuOpen(false)}
-            className="text-zinc-400 hover:text-white font-medium text-lg py-1"
-          >
-            Contáctame
-          </Link>
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className={`font-medium text-lg py-1 ${isActive ? "text-white" : "text-zinc-400 hover:text-white"}`}
+              >
+                {link.label}
+              </Link>
+            )
+          })}
           <div className="pt-2 flex flex-col gap-3">
             <Link
               href="/contacto"
