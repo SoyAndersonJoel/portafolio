@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { Mail, MapPin, Globe } from "lucide-react"
+import { ArrowRight, Mail, MapPin, Globe } from "lucide-react"
 import { GithubIcon, LinkedinIcon } from "@/components/icons"
 import { portfolioData } from "@/data/portfolio"
 
@@ -15,6 +15,33 @@ export function Footer() {
 
   return (
     <footer id="contacto" className="w-full bg-black text-white relative z-20 border-t border-white/10">
+      {/* Call to action big banner with background image identical to uxjonathan */}
+      <div className="relative w-full overflow-hidden min-h-[500px] flex items-center justify-center text-center px-6 pt-36 pb-20">
+        <img
+          alt="Engineering workspace"
+          className="absolute inset-0 w-full h-full object-cover opacity-35"
+          src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent" />
+
+        <div className="relative z-10 max-w-3xl flex flex-col items-center space-y-8">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-white leading-tight">
+            ¿Tienes un proyecto o vacante en mente?{" "}
+            <span className="text-zinc-400">Hagámoslo realidad.</span>
+          </h2>
+          <p className="text-zinc-400 max-w-xl text-base sm:text-lg">
+            Disponible para posiciones Full-Stack, Backend con NestJS o integraciones de IA.
+          </p>
+          <a
+            className="inline-flex items-center gap-2 bg-white hover:bg-zinc-200 text-black px-8 py-4 rounded-full text-base sm:text-lg font-bold transition-all hover:scale-105 shadow-2xl cursor-pointer"
+            href={`mailto:${personal.email}`}
+          >
+            <span>Escríbeme</span>
+            <ArrowRight className="w-5 h-5" />
+          </a>
+        </div>
+      </div>
+
       {/* Main Footer Links */}
       <div className="max-w-6xl mx-auto flex flex-col items-center px-6 md:px-12 pt-16 pb-12">
         <div className="w-full grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-12 pb-12 border-b border-white/10">
