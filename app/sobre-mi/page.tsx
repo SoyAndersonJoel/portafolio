@@ -55,25 +55,26 @@ export default function SobreMiPage() {
 
   return (
     <div className="w-full flex flex-col bg-black text-white">
-      {/* 1. Header con foto de escritorio y café (idéntico a referencia) */}
+      {/* 1. Header con foto de escritorio y café clara y luminosa (estilo editorial) */}
       <section className="relative w-full overflow-hidden min-h-[380px] sm:min-h-[440px] flex items-center justify-center pt-28 sm:pt-36 pb-16 px-6 md:px-12">
         <img
-          alt="Workspace desk with coffee and notebook"
-          className="absolute inset-0 w-full h-full object-cover opacity-35"
-          src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=2000&auto=format&fit=crop"
+          alt="Workspace desk with coffee, pen and notebook"
+          className="absolute inset-0 w-full h-full object-cover opacity-65 transition-transform duration-1000 scale-105"
+          src="https://images.unsplash.com/photo-1517842645767-c639042777db?q=80&w=2000&auto=format&fit=crop"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black/40" />
+        {/* Gradiente sutil y luminoso que deja ver la madera, taza y libreta */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/45 to-black/25" />
 
         <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center text-center space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/60 border border-white/20 text-white text-xs font-bold shadow-xl backdrop-blur-md">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/60 border border-white/25 text-white text-xs font-bold shadow-xl backdrop-blur-md hover:border-purple-400/50 transition-colors">
             <span>👋 ¡Hola!</span>
           </div>
 
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-white">
+          <h1 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-white drop-shadow-md">
             Sobre mí
           </h1>
 
-          <p className="text-zinc-300 max-w-2xl text-base sm:text-lg md:text-xl font-normal leading-relaxed">
+          <p className="text-zinc-200 max-w-2xl text-base sm:text-lg md:text-xl font-normal leading-relaxed drop-shadow-sm">
             Desarrollador Full Stack en Quito, Ecuador. Arquitectura limpia, NestJS y soluciones de alto rendimiento que resuelven problemas críticos.
           </p>
         </div>
@@ -84,18 +85,18 @@ export default function SobreMiPage() {
         <div className="max-w-[1240px] mx-auto space-y-24">
           {/* 2.1 Bio & Retrato */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            {/* Columna Izquierda: Texto de presentación */}
-            <div className="lg:col-span-7 space-y-6 text-zinc-700 leading-relaxed text-base sm:text-lg">
-              <p className="text-xl sm:text-2xl font-bold text-black leading-snug">
-                Soy Anderson Vilatuña, Desarrollador Full Stack radicado en Quito, Ecuador. Especializado en el desarrollo de aplicaciones web de extremo a extremo con arquitecturas limpias y código mantenible.
+            {/* Columna Izquierda: Texto de presentación sin negritas y tamaño más pequeño */}
+            <div className="lg:col-span-7 space-y-5 text-zinc-600 leading-relaxed text-sm sm:text-base">
+              <p>
+                Soy Anderson Vilatuña, Desarrollador Full Stack radicado en Quito, Ecuador. Me especializo en la construcción de aplicaciones web de extremo a extremo, con un enfoque en la arquitectura limpia, el rendimiento del sistema y soluciones preparadas para escalar en producción.
               </p>
 
               <p>
-                Cuento con un fuerte enfoque en el diseño de sistemas escalables utilizando <strong className="text-black font-semibold">NestJS</strong>, <strong className="text-black font-semibold">React</strong> y <strong className="text-black font-semibold">PostgreSQL</strong>, cuidando tanto el rendimiento como la predictibilidad de cada componente.
+                Cuento con experiencia en el diseño y desarrollo de aplicaciones utilizando NestJS, React y PostgreSQL, cuidando la predictibilidad, la seguridad y la eficiencia de cada servicio implementado.
               </p>
 
               <p>
-                He liderado el desarrollo técnico de plataformas logísticas, donde implementé soluciones de mensajería y alertas en tiempo real que optimizaron la operatividad integral de los despachos. Mi metodología de trabajo se basa en principios <strong className="text-black font-semibold">SOLID</strong> y metodologías ágiles <strong className="text-black font-semibold">Scrum</strong>, priorizando siempre la entrega de valor sin deuda técnica.
+                He liderado el desarrollo técnico de plataformas logísticas, donde implementé soluciones de mensajería y alertas en tiempo real que optimizaron la operatividad integral de los despachos. Mi metodología de trabajo se basa en principios SOLID y metodologías ágiles Scrum, priorizando siempre la entrega de código mantenible y soluciones que resuelvan problemas críticos de negocio.
               </p>
 
               <p>
@@ -103,19 +104,19 @@ export default function SobreMiPage() {
               </p>
 
               {/* Pills de Datos Clave */}
-              <div className="pt-4 flex flex-wrap items-center gap-3">
-                <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-100 border border-zinc-200 text-xs font-semibold text-zinc-800">
+              <div className="pt-3 flex flex-wrap items-center gap-3">
+                <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-100 hover:bg-zinc-200/80 border border-zinc-200 text-xs font-medium text-zinc-800 transition-colors">
                   <MapPin className="w-3.5 h-3.5 text-purple-600" />
                   <span>Quito, Ecuador</span>
                 </div>
-                <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-100 border border-zinc-200 text-xs font-semibold text-zinc-800">
+                <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-100 hover:bg-zinc-200/80 border border-zinc-200 text-xs font-medium text-zinc-800 transition-colors">
                   <Globe className="w-3.5 h-3.5 text-emerald-600" />
                   <span>Español (Nativo) · Inglés (B2)</span>
                 </div>
               </div>
 
               {/* Botones de acción */}
-              <div className="pt-4 flex flex-wrap items-center gap-4">
+              <div className="pt-3 flex flex-wrap items-center gap-4">
                 <Link
                   href="/contacto"
                   className="bg-black hover:bg-zinc-800 text-white font-extrabold px-7 py-3.5 rounded-full text-sm tracking-wide transition-all hover:scale-105 shadow-xl inline-flex items-center gap-2 cursor-pointer"
@@ -129,7 +130,7 @@ export default function SobreMiPage() {
                     href={personal.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-11 h-11 rounded-full bg-zinc-100 hover:bg-zinc-200 border border-zinc-300 flex items-center justify-center text-zinc-800 transition-colors cursor-pointer"
+                    className="w-11 h-11 rounded-full bg-zinc-100 hover:bg-zinc-200 border border-zinc-300 flex items-center justify-center text-zinc-800 transition-all hover:scale-110 cursor-pointer shadow-sm"
                     aria-label="GitHub"
                   >
                     <GithubIcon className="w-4 h-4" />
@@ -138,14 +139,14 @@ export default function SobreMiPage() {
                     href={personal.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-11 h-11 rounded-full bg-zinc-100 hover:bg-zinc-200 border border-zinc-300 flex items-center justify-center text-zinc-800 transition-colors cursor-pointer"
+                    className="w-11 h-11 rounded-full bg-zinc-100 hover:bg-zinc-200 border border-zinc-300 flex items-center justify-center text-zinc-800 transition-all hover:scale-110 cursor-pointer shadow-sm"
                     aria-label="LinkedIn"
                   >
                     <LinkedinIcon className="w-4 h-4" />
                   </a>
                   <a
                     href={`mailto:${personal.email}`}
-                    className="w-11 h-11 rounded-full bg-zinc-100 hover:bg-zinc-200 border border-zinc-300 flex items-center justify-center text-zinc-800 transition-colors cursor-pointer"
+                    className="w-11 h-11 rounded-full bg-zinc-100 hover:bg-zinc-200 border border-zinc-300 flex items-center justify-center text-zinc-800 transition-all hover:scale-110 cursor-pointer shadow-sm"
                     aria-label="Email"
                   >
                     <Mail className="w-4 h-4" />
@@ -154,36 +155,21 @@ export default function SobreMiPage() {
               </div>
             </div>
 
-            {/* Columna Derecha: Tarjeta Fotográfica */}
+            {/* Columna Derecha: Tarjeta Fotográfica limpia con aboutme.png y sin recuadro negro */}
             <div className="lg:col-span-5 flex justify-center lg:justify-end">
-              <div className="w-full max-w-[440px] rounded-[36px] overflow-hidden bg-zinc-950 border border-zinc-200 shadow-2xl relative group">
-                <div className="relative h-[480px] sm:h-[540px] w-full overflow-hidden">
+              <div className="w-full max-w-[420px] rounded-[32px] overflow-hidden bg-zinc-100 border border-zinc-200/80 shadow-[0_20px_50px_rgba(0,0,0,0.12)] hover:shadow-[0_25px_60px_rgba(0,0,0,0.18)] transition-all duration-500 group">
+                <div className="relative h-[480px] sm:h-[520px] w-full overflow-hidden bg-zinc-50">
                   <img
-                    src="/profile.webp"
-                    alt="Anderson Vilatuña - Full-Stack Engineer"
-                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                    src="/aboutme.png"
+                    alt="Anderson Vilatuña"
+                    className="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-700 ease-out"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-
-                  {/* Floating Overlay Badge */}
-                  <div className="absolute bottom-5 left-5 right-5 p-4 rounded-2xl bg-black/80 backdrop-blur-md border border-white/15 text-white space-y-1">
-                    <div className="text-xs font-mono text-purple-300 font-bold uppercase tracking-wider flex items-center justify-between">
-                      <span>Full-Stack Engineer</span>
-                      <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                    </div>
-                    <div className="text-sm font-bold text-white">
-                      Anderson Joel Vilatuña
-                    </div>
-                    <div className="text-xs text-zinc-300 font-mono">
-                      📍 Quito, Ecuador · Open to Opportunities
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* 2.2 Experiencia Laboral (Timeline idéntico a imagen 2) */}
+          {/* 2.2 Experiencia Laboral (Timeline idéntico a imagen 2 con animaciones fluidas) */}
           <div className="pt-20 border-t border-zinc-200">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
               {/* Columna Izquierda: Título y Filosofía */}
@@ -191,14 +177,14 @@ export default function SobreMiPage() {
                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-black tracking-tight leading-tight">
                   Experiencia Laboral.
                 </h2>
-                <p className="text-zinc-600 text-base sm:text-lg leading-relaxed">
+                <p className="text-zinc-600 text-sm sm:text-base leading-relaxed">
                   No solo escribo código; diseño y construyo sistemas con arquitectura modular y principios de ingeniería sólidos. Un recorrido conectando el análisis riguroso con la entrega de soluciones escalables, liderando desarrollos en equipo y gestionando infraestructura institucional.
                 </p>
 
                 <div className="pt-4">
                   <a
                     href={`mailto:${personal.email}`}
-                    className="inline-flex items-center gap-2 text-sm font-bold text-purple-600 hover:text-purple-700 transition-colors"
+                    className="inline-flex items-center gap-2 text-sm font-bold text-purple-600 hover:text-purple-700 hover:gap-3 transition-all"
                   >
                     <span>¿Interesado en mi perfil? Escríbeme</span>
                     <ArrowRight className="w-4 h-4" />
@@ -210,15 +196,15 @@ export default function SobreMiPage() {
               <div className="lg:col-span-7">
                 <div className="relative border-l-2 border-zinc-200 pl-6 sm:pl-8 space-y-12">
                   {/* Item 1: Trackifly */}
-                  <div className="relative">
-                    {/* Purple Active Dot */}
-                    <div className="absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-purple-600 ring-4 ring-purple-100"></div>
+                  <div className="relative group">
+                    {/* Purple Active Dot with Animated Ring */}
+                    <div className="absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-purple-600 ring-4 ring-purple-100 group-hover:ring-purple-200 group-hover:scale-110 transition-all"></div>
 
-                    <div className="space-y-2">
+                    <div className="space-y-2 p-5 -ml-5 rounded-2xl transition-colors duration-300 hover:bg-zinc-50/80">
                       <div className="text-xs font-mono text-zinc-500 font-bold uppercase tracking-wider">
                         Abril/2026 – Mayo/2026
                       </div>
-                      <h3 className="text-xl sm:text-2xl font-extrabold text-black tracking-tight">
+                      <h3 className="text-xl sm:text-2xl font-extrabold text-black tracking-tight group-hover:text-purple-900 transition-colors">
                         Líder Técnico & Backend Developer
                       </h3>
                       <div className="text-sm font-semibold text-purple-600">
@@ -233,7 +219,7 @@ export default function SobreMiPage() {
                         {["NestJS", "WebSockets", "PostgreSQL", "TypeScript", "SOLID", "Scrum"].map((skill) => (
                           <span
                             key={skill}
-                            className="px-2.5 py-1 rounded-full text-xs font-semibold bg-zinc-100 text-zinc-800 border border-zinc-200"
+                            className="px-2.5 py-1 rounded-full text-xs font-semibold bg-zinc-100 text-zinc-800 border border-zinc-200 hover:border-purple-300 hover:bg-white transition-colors"
                           >
                             {skill}
                           </span>
@@ -243,15 +229,15 @@ export default function SobreMiPage() {
                   </div>
 
                   {/* Item 2: Escuela Politécnica Nacional - DGIP */}
-                  <div className="relative">
-                    {/* Gray Dot */}
-                    <div className="absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-zinc-400"></div>
+                  <div className="relative group">
+                    {/* Gray Dot that turns dark on hover */}
+                    <div className="absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-zinc-400 group-hover:bg-zinc-600 group-hover:scale-110 transition-all"></div>
 
-                    <div className="space-y-2">
+                    <div className="space-y-2 p-5 -ml-5 rounded-2xl transition-colors duration-300 hover:bg-zinc-50/80">
                       <div className="text-xs font-mono text-zinc-500 font-bold uppercase tracking-wider">
                         Agosto/2024 – Octubre/2024
                       </div>
-                      <h3 className="text-xl sm:text-2xl font-extrabold text-black tracking-tight">
+                      <h3 className="text-xl sm:text-2xl font-extrabold text-black tracking-tight group-hover:text-zinc-950 transition-colors">
                         Asistente Técnico de TI
                       </h3>
                       <div className="text-sm font-semibold text-zinc-700">
@@ -283,7 +269,7 @@ export default function SobreMiPage() {
                         {["Active Directory", "GLPI", "Soporte TI", "Seguridad Redes", "Diagnóstico de Hardware/Software"].map((skill) => (
                           <span
                             key={skill}
-                            className="px-2.5 py-1 rounded-full text-xs font-semibold bg-zinc-100 text-zinc-800 border border-zinc-200"
+                            className="px-2.5 py-1 rounded-full text-xs font-semibold bg-zinc-100 text-zinc-800 border border-zinc-200 hover:border-zinc-400 hover:bg-white transition-colors"
                           >
                             {skill}
                           </span>
@@ -296,7 +282,7 @@ export default function SobreMiPage() {
             </div>
           </div>
 
-          {/* 2.3 Educación Profesional */}
+          {/* 2.3 Educación Profesional con tarjetas interactivas */}
           <div className="pt-20 border-t border-zinc-200">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
               {/* Columna Izquierda */}
@@ -304,17 +290,17 @@ export default function SobreMiPage() {
                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-black tracking-tight leading-tight">
                   Educación Profesional.
                 </h2>
-                <p className="text-zinc-600 text-base sm:text-lg leading-relaxed">
+                <p className="text-zinc-600 text-sm sm:text-base leading-relaxed">
                   Bases sólidas de ingeniería de software y ciencias de la computación combinadas con cientos de horas de práctica intensiva y metodologías de desarrollo actuales.
                 </p>
               </div>
 
-              {/* Columna Derecha: Lista de Educación */}
-              <div className="lg:col-span-7 space-y-8">
+              {/* Columna Derecha: Lista de Educación con hover effect */}
+              <div className="lg:col-span-7 space-y-6">
                 {education.map((edu, idx) => (
                   <div
                     key={idx}
-                    className="p-6 sm:p-7 rounded-2xl bg-zinc-50 border border-zinc-200 hover:border-purple-300 transition-colors space-y-2"
+                    className="p-6 sm:p-7 rounded-2xl bg-zinc-50 border border-zinc-200 hover:border-purple-300 hover:shadow-md hover:-translate-y-1 transition-all duration-300 space-y-2 group"
                   >
                     <div className="flex items-center justify-between gap-4">
                       <span className="text-xs font-mono font-bold text-zinc-500 uppercase tracking-wider">
@@ -325,7 +311,7 @@ export default function SobreMiPage() {
                       </span>
                     </div>
 
-                    <h3 className="text-xl font-extrabold text-black tracking-tight">
+                    <h3 className="text-xl font-extrabold text-black tracking-tight group-hover:text-purple-900 transition-colors">
                       {edu.degree}
                     </h3>
                     <div className="text-sm font-semibold text-purple-600">
@@ -347,7 +333,7 @@ export default function SobreMiPage() {
               <h2 className="text-3xl sm:text-4xl font-black text-black tracking-tight">
                 Tecnologías & Metodologías
               </h2>
-              <p className="text-zinc-600 text-base sm:text-lg">
+              <p className="text-zinc-600 text-sm sm:text-base">
                 Herramientas y lenguajes que utilizo diariamente para construir productos digitales resilientes y mantenibles.
               </p>
             </div>
@@ -356,7 +342,7 @@ export default function SobreMiPage() {
               {techCategories.map((cat, idx) => (
                 <div
                   key={idx}
-                  className="p-6 rounded-2xl bg-zinc-50 border border-zinc-200 space-y-3"
+                  className="p-6 rounded-2xl bg-zinc-50 border border-zinc-200 hover:border-purple-300 hover:shadow-md transition-all duration-300 space-y-3"
                 >
                   <div className="text-xs font-bold font-mono uppercase tracking-wider text-purple-700">
                     {cat.category}
@@ -365,7 +351,7 @@ export default function SobreMiPage() {
                     {cat.skills.map((skill) => (
                       <span
                         key={skill}
-                        className="px-3 py-1 rounded-full text-xs font-semibold bg-white text-zinc-900 border border-zinc-200 shadow-sm"
+                        className="px-3 py-1 rounded-full text-xs font-medium bg-white text-zinc-900 border border-zinc-200 shadow-sm hover:border-zinc-400 hover:scale-105 transition-all"
                       >
                         {skill}
                       </span>
@@ -376,7 +362,7 @@ export default function SobreMiPage() {
             </div>
 
             {/* Idiomas */}
-            <div className="p-6 sm:p-8 rounded-3xl bg-zinc-950 text-white flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="p-6 sm:p-8 rounded-3xl bg-zinc-950 text-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl border border-white/10 hover:border-purple-500/30 transition-colors">
               <div className="space-y-1 text-center md:text-left">
                 <div className="text-xs font-mono uppercase tracking-widest text-purple-300 font-bold">
                   Competencia Lingüística
@@ -393,7 +379,7 @@ export default function SobreMiPage() {
                 {languages.map((lang, lIdx) => (
                   <div
                     key={lIdx}
-                    className="px-5 py-3 rounded-2xl bg-white/10 border border-white/15 flex items-center gap-3"
+                    className="px-5 py-3 rounded-2xl bg-white/10 border border-white/15 flex items-center gap-3 hover:bg-white/15 transition-all hover:scale-105"
                   >
                     <Globe className="w-4 h-4 text-emerald-400" />
                     <div>
