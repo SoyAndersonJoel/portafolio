@@ -8,7 +8,7 @@ export function WhatsAppFloat() {
 
   return (
     <a
-      href={`https://wa.me/${personal.whatsappNumber}`}
+      href={`https://wa.me/${personal.whatsappNumber}?text=Hola%20Anderson,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20conversar%20contigo.`}
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-[0_4px_14px_0_rgba(37,211,102,0.39)] hover:shadow-[0_6px_20px_rgba(37,211,102,0.5)] hover:scale-110 active:scale-95 transition-all flex items-center justify-center cursor-pointer group"

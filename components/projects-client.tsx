@@ -698,7 +698,7 @@ export function ProjectsClient() {
               href="/contacto"
               className="bg-white text-black hover:bg-zinc-200 font-extrabold px-8 py-3.5 rounded-full text-sm sm:text-base tracking-wide transition-all hover:scale-105 shadow-xl inline-flex items-center gap-2 cursor-pointer"
             >
-              <span>Hablemos de tu proyecto</span>
+              <span>Contáctame</span>
               <ArrowUpRight className="w-4 h-4" />
             </a>
 

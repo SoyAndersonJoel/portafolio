@@ -33,13 +33,13 @@ export function Footer() {
           <p className="text-zinc-400 max-w-xl text-base sm:text-lg">
             Disponible para posiciones Full-Stack, Backend con NestJS o integraciones de IA.
           </p>
-          <a
+          <Link
             className="inline-flex items-center gap-2 bg-white hover:bg-zinc-200 text-black px-8 py-4 rounded-full text-base sm:text-lg font-bold transition-all hover:scale-105 shadow-2xl cursor-pointer"
-            href={`mailto:${personal.email}`}
+            href="/contacto"
           >
             <span>Escríbeme</span>
             <ArrowRight className="w-5 h-5" />
-          </a>
+          </Link>
         </div>
       </div>
 
@@ -93,7 +93,9 @@ export function Footer() {
             <ul className="space-y-2.5 text-sm text-zinc-400">
               <li>
                 <a
-                  href={`mailto:${personal.email}`}
+                  href={`https://mail.google.com/mail/?view=cm&fs=1&to=${personal.email}&su=Contacto%20desde%20Portafolio`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-2 hover:text-white transition-colors"
                 >
                   <Mail className="w-4 h-4 text-emerald-400" />

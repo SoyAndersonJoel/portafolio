@@ -41,7 +41,9 @@ export const portfolioData = {
     yearsExp: "2+",
     projectsCount: "10+",
     deployCount: "99.9%",
-    whatsappNumber: "593999999999", // Placeholder editable
+    whatsappNumber: "593961625931",
+    phone: "0961625931",
+    displayPhone: "+593 961 625 931",
     email: "joel.vilatuna123@gmail.com",
     github: "https://github.com/SoyAndersonJoel",
     linkedin: "https://www.linkedin.com/in/anderson-joel-vilatuña",

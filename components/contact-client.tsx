@@ -10,6 +10,9 @@ import {
   AlertCircle,
   Sparkles,
   MessageSquare,
+  Copy,
+  Check,
+  ExternalLink,
 } from "lucide-react"
 import { GithubIcon, LinkedinIcon } from "@/components/icons"
 import { portfolioData } from "@/data/portfolio"
@@ -24,6 +27,15 @@ export function ContactClient() {
   const [message, setMessage] = React.useState("")
   const [status, setStatus] = React.useState<FormStatus>("idle")
   const [errorMsg, setErrorMsg] = React.useState("")
+  const [copiedEmail, setCopiedEmail] = React.useState(false)
+
+  const handleCopyEmail = (e: React.MouseEvent) => {
+    e.preventDefault()
+    e.stopPropagation()
+    navigator.clipboard.writeText(personal.email)
+    setCopiedEmail(true)
+    setTimeout(() => setCopiedEmail(false), 2500)
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -49,21 +61,30 @@ export function ContactClient() {
       }
 
       setStatus("success")
-      setName("")
-      setEmail("")
-      setMessage("")
     } catch (err: any) {
       setStatus("error")
-      setErrorMsg(err.message || "Error inesperado. Intenta de nuevo.")
+      setErrorMsg(err.message || "Error al conectar. Puedes escribirme directo por WhatsApp o Gmail.")
     }
   }
+
+  const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(
+    personal.email
+  )}&su=${encodeURIComponent("Contacto desde tu Portafolio")}&body=${encodeURIComponent(
+    name ? `Hola Anderson,\n\nSoy ${name}.\n\n${message || "Me gustaría conversar contigo."}` : ""
+  )}`
+
+  const whatsappDirectUrl = `https://wa.me/${personal.whatsappNumber}?text=${encodeURIComponent(
+    `Hola Anderson, te escribo desde tu portafolio.${name ? ` Mi nombre es ${name}.` : ""}${
+      message ? ` ${message}` : ""
+    }`
+  )}`
 
   return (
     <div className="w-full flex flex-col bg-black text-white">
       {/* 1. Hero Header */}
-      <section className="relative w-full overflow-hidden min-h-[380px] sm:min-h-[420px] flex items-center justify-center pt-28 sm:pt-36 pb-16 px-6 md:px-12">
+      <section className="relative w-full overflow-hidden min-h-[360px] sm:min-h-[400px] flex items-center justify-center pt-28 sm:pt-36 pb-16 px-6 md:px-12">
         <img
-          alt="Team working together on a project"
+          alt="Engineering collaboration"
           className="absolute inset-0 w-full h-full object-cover opacity-50 transition-transform duration-1000 scale-105"
           src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2000&auto=format&fit=crop"
         />
@@ -72,15 +93,15 @@ export function ContactClient() {
         <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center text-center space-y-4">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/60 border border-white/25 text-white text-xs font-bold shadow-xl backdrop-blur-md">
             <Sparkles className="w-3.5 h-3.5 text-purple-400" />
-            <span>Contáctame</span>
+            <span>Contacto Directo</span>
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-white drop-shadow-md">
-            Hablemos de tu proyecto
+            Contáctame
           </h1>
 
           <p className="text-zinc-200 max-w-2xl text-base sm:text-lg font-normal leading-relaxed drop-shadow-sm">
-            ¿Tienes una idea, una vacante o un reto técnico? Escríbeme directamente y te respondo en menos de 24 horas.
+            Envíame un mensaje directo por el formulario, o conversemos en tiempo real a través de WhatsApp o Gmail.
           </p>
         </div>
       </section>
@@ -88,13 +109,13 @@ export function ContactClient() {
       {/* 2. Sección Blanca: Formulario + Tarjetas de Contacto */}
       <section className="w-full bg-white text-zinc-900 py-16 md:py-24 px-6 md:px-12 relative z-10">
         <div className="max-w-[1100px] mx-auto">
-          {/* Formulario y Cards en un contenedor unificado con borde */}
+          {/* Contenedor unificado con borde */}
           <div className="rounded-3xl border border-zinc-200 overflow-hidden shadow-sm">
-            {/* Encabezado del formulario */}
+            {/* Encabezado del formulario solicitado */}
             <div className="flex items-center gap-3 px-8 py-5 border-b border-zinc-200 bg-zinc-50/80">
               <MessageSquare className="w-5 h-5 text-zinc-700" />
               <h2 className="text-base sm:text-lg font-bold text-black">
-                ¿Prefieres escribirme?
+                Contáctate conmigo
               </h2>
             </div>
 
@@ -103,19 +124,50 @@ export function ContactClient() {
                 {/* Columna Izquierda: Formulario */}
                 <div className="lg:col-span-7">
                   {status === "success" ? (
-                    <div className="flex flex-col items-center justify-center text-center py-16 space-y-4">
+                    <div className="flex flex-col items-center justify-center text-center py-12 px-4 space-y-5 bg-zinc-50 rounded-2xl border border-zinc-200">
                       <div className="w-16 h-16 rounded-full bg-emerald-100 flex items-center justify-center">
                         <CheckCircle2 className="w-8 h-8 text-emerald-600" />
                       </div>
-                      <h3 className="text-2xl font-black text-black">
-                        ¡Mensaje enviado!
-                      </h3>
-                      <p className="text-zinc-600 text-sm sm:text-base max-w-sm">
-                        Gracias por escribirme. Revisaré tu mensaje y te responderé lo antes posible.
-                      </p>
+                      <div className="space-y-2">
+                        <h3 className="text-2xl font-black text-black">
+                          ¡Mensaje enviado con éxito!
+                        </h3>
+                        <p className="text-zinc-600 text-sm sm:text-base max-w-md">
+                          Tu mensaje ha sido registrado. Si deseas una respuesta inmediata o enviar una copia directa, puedes abrir tu correo o escribirme al WhatsApp:
+                        </p>
+                      </div>
+
+                      {/* Botones de acción directa tras enviar */}
+                      <div className="flex flex-wrap items-center justify-center gap-3 pt-2 w-full max-w-md">
+                        <a
+                          href={gmailComposeUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex-1 min-w-[180px] bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-4 rounded-xl text-xs sm:text-sm inline-flex items-center justify-center gap-2 transition-all shadow-md hover:scale-105"
+                        >
+                          <Mail className="w-4 h-4" />
+                          <span>Abrir en Gmail</span>
+                        </a>
+
+                        <a
+                          href={whatsappDirectUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex-1 min-w-[180px] bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold py-3 px-4 rounded-xl text-xs sm:text-sm inline-flex items-center justify-center gap-2 transition-all shadow-md hover:scale-105"
+                        >
+                          <Phone className="w-4 h-4" />
+                          <span>WhatsApp Directo</span>
+                        </a>
+                      </div>
+
                       <button
-                        onClick={() => setStatus("idle")}
-                        className="mt-4 px-6 py-2.5 rounded-full bg-black hover:bg-zinc-800 text-white text-sm font-bold transition-all hover:scale-105 cursor-pointer"
+                        onClick={() => {
+                          setStatus("idle")
+                          setName("")
+                          setEmail("")
+                          setMessage("")
+                        }}
+                        className="text-xs text-zinc-500 hover:text-black underline pt-4 cursor-pointer"
                       >
                         Enviar otro mensaje
                       </button>
@@ -186,72 +238,135 @@ export function ContactClient() {
                         </div>
                       )}
 
-                      {/* Botón Submit */}
-                      <button
-                        type="submit"
-                        disabled={status === "sending"}
-                        className="w-full sm:w-auto bg-black hover:bg-zinc-800 text-white font-extrabold px-10 py-3.5 rounded-full text-sm tracking-wide transition-all hover:scale-105 shadow-lg cursor-pointer inline-flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100"
-                      >
-                        {status === "sending" ? (
-                          <>
-                            <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                            <span>Enviando...</span>
-                          </>
-                        ) : (
-                          <>
-                            <Send className="w-4 h-4" />
-                            <span>Enviar mensaje</span>
-                          </>
-                        )}
-                      </button>
+                      {/* Botones de Envío */}
+                      <div className="flex flex-wrap items-center gap-3">
+                        <button
+                          type="submit"
+                          disabled={status === "sending"}
+                          className="bg-black hover:bg-zinc-800 text-white font-extrabold px-8 py-3.5 rounded-full text-sm tracking-wide transition-all hover:scale-105 shadow-lg cursor-pointer inline-flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100"
+                        >
+                          {status === "sending" ? (
+                            <>
+                              <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                              <span>Enviando...</span>
+                            </>
+                          ) : (
+                            <>
+                              <Send className="w-4 h-4" />
+                              <span>Enviar mensaje</span>
+                            </>
+                          )}
+                        </button>
+
+                        <a
+                          href={gmailComposeUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-6 py-3.5 rounded-full border border-zinc-300 hover:border-red-500 text-zinc-700 hover:text-red-600 bg-white font-bold text-sm inline-flex items-center gap-2 transition-all hover:scale-105 cursor-pointer shadow-sm"
+                          title="Redactar mensaje directamente en Gmail"
+                        >
+                          <Mail className="w-4 h-4 text-red-500" />
+                          <span>Abrir en Gmail</span>
+                          <ExternalLink className="w-3.5 h-3.5 opacity-60" />
+                        </a>
+                      </div>
                     </form>
                   )}
                 </div>
 
-                {/* Columna Derecha: Tarjetas de Información de Contacto */}
+                {/* Columna Derecha: Tarjetas de Información de Contacto Directo */}
                 <div className="lg:col-span-5 space-y-4">
-                  {/* Correo */}
-                  <a
-                    href={`mailto:${personal.email}`}
-                    className="flex items-center gap-4 p-5 rounded-2xl border border-zinc-200 hover:border-purple-300 bg-zinc-50/60 hover:bg-purple-50/40 transition-all group cursor-pointer"
-                  >
-                    <div className="w-11 h-11 rounded-full bg-white border border-zinc-200 group-hover:border-purple-300 flex items-center justify-center text-zinc-600 group-hover:text-purple-600 transition-colors shadow-sm">
-                      <Mail className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <div className="text-sm font-bold text-black">Correo</div>
-                      <div className="text-xs sm:text-sm text-zinc-500 group-hover:text-purple-600 transition-colors">
-                        {personal.email}
+                  {/* Correo / Gmail Card con apertura directa y botón copiar */}
+                  <div className="p-5 rounded-2xl border border-zinc-200 hover:border-purple-300 bg-zinc-50/70 transition-all space-y-3">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-full bg-white border border-zinc-200 flex items-center justify-center text-purple-600 shadow-sm">
+                          <Mail className="w-5 h-5" />
+                        </div>
+                        <div>
+                          <div className="text-sm font-bold text-black">Correo Electrónico</div>
+                          <div className="text-xs text-zinc-500 font-mono">
+                            {personal.email}
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </a>
 
-                  {/* WhatsApp / Teléfono */}
+                      {/* Botón Copiar Correo */}
+                      <button
+                        onClick={handleCopyEmail}
+                        className="p-2 rounded-xl border border-zinc-200 hover:border-zinc-400 bg-white text-zinc-600 hover:text-black transition-colors cursor-pointer text-xs flex items-center gap-1.5 shadow-sm"
+                        title="Copiar correo al portapapeles"
+                      >
+                        {copiedEmail ? (
+                          <>
+                            <Check className="w-3.5 h-3.5 text-emerald-600" />
+                            <span className="text-[11px] font-bold text-emerald-600">¡Copiado!</span>
+                          </>
+                        ) : (
+                          <>
+                            <Copy className="w-3.5 h-3.5" />
+                            <span className="text-[11px] font-medium">Copiar</span>
+                          </>
+                        )}
+                      </button>
+                    </div>
+
+                    {/* Enlaces directos a Gmail Web y mailto */}
+                    <div className="flex items-center gap-2 pt-1 border-t border-zinc-200/60">
+                      <a
+                        href={gmailComposeUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xs font-bold text-purple-600 hover:text-purple-800 inline-flex items-center gap-1 transition-colors"
+                      >
+                        <span>Escribir en Gmail Web</span>
+                        <ExternalLink className="w-3 h-3" />
+                      </a>
+                      <span className="text-zinc-300">•</span>
+                      <a
+                        href={`mailto:${personal.email}`}
+                        className="text-xs font-medium text-zinc-500 hover:text-zinc-800 transition-colors"
+                      >
+                        Abrir app de correo
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* WhatsApp Card con número directo 0961625931 */}
                   <a
-                    href={`https://wa.me/${personal.whatsappNumber}`}
+                    href={whatsappDirectUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-4 p-5 rounded-2xl border border-zinc-200 hover:border-emerald-300 bg-zinc-50/60 hover:bg-emerald-50/40 transition-all group cursor-pointer"
+                    className="flex items-center justify-between p-5 rounded-2xl border border-zinc-200 hover:border-emerald-300 bg-zinc-50/70 hover:bg-emerald-50/30 transition-all group cursor-pointer"
                   >
-                    <div className="w-11 h-11 rounded-full bg-white border border-zinc-200 group-hover:border-emerald-300 flex items-center justify-center text-zinc-600 group-hover:text-emerald-600 transition-colors shadow-sm">
-                      <Phone className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <div className="text-sm font-bold text-black">WhatsApp</div>
-                      <div className="text-xs sm:text-sm text-zinc-500 group-hover:text-emerald-600 transition-colors">
-                        +593 {personal.whatsappNumber.slice(3)}
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-white border border-zinc-200 group-hover:border-emerald-300 flex items-center justify-center text-emerald-600 transition-colors shadow-sm">
+                        <Phone className="w-5 h-5" />
+                      </div>
+                      <div>
+                        <div className="text-sm font-bold text-black flex items-center gap-2">
+                          <span>WhatsApp</span>
+                          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        </div>
+                        <div className="text-xs sm:text-sm text-zinc-600 font-mono font-medium">
+                          {personal.phone} · {personal.displayPhone}
+                        </div>
                       </div>
                     </div>
+
+                    <span className="text-xs font-bold text-emerald-600 group-hover:translate-x-0.5 transition-transform">
+                      Chatear ↗
+                    </span>
                   </a>
 
                   {/* Ubicación */}
-                  <div className="flex items-center gap-4 p-5 rounded-2xl border border-zinc-200 bg-zinc-50/60">
-                    <div className="w-11 h-11 rounded-full bg-white border border-zinc-200 flex items-center justify-center text-zinc-600 shadow-sm">
+                  <div className="flex items-center gap-3 p-5 rounded-2xl border border-zinc-200 bg-zinc-50/70">
+                    <div className="w-10 h-10 rounded-full bg-white border border-zinc-200 flex items-center justify-center text-zinc-600 shadow-sm">
                       <MapPin className="w-5 h-5" />
                     </div>
                     <div>
                       <div className="text-sm font-bold text-black">Ubicación</div>
-                      <div className="text-xs sm:text-sm text-zinc-500">
+                      <div className="text-xs sm:text-sm text-zinc-600">
                         {personal.location}
                       </div>
                     </div>
@@ -267,7 +382,7 @@ export function ContactClient() {
                         href={personal.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-zinc-100 hover:bg-zinc-200 border border-zinc-200 text-zinc-800 text-sm font-semibold transition-all hover:scale-105 cursor-pointer"
+                        className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-zinc-100 hover:bg-zinc-200 border border-zinc-200 text-zinc-800 text-sm font-semibold transition-all hover:scale-105 cursor-pointer shadow-sm"
                       >
                         <GithubIcon className="w-4 h-4" />
                         <span>GitHub</span>
@@ -276,7 +391,7 @@ export function ContactClient() {
                         href={personal.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-zinc-100 hover:bg-zinc-200 border border-zinc-200 text-zinc-800 text-sm font-semibold transition-all hover:scale-105 cursor-pointer"
+                        className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-zinc-100 hover:bg-zinc-200 border border-zinc-200 text-zinc-800 text-sm font-semibold transition-all hover:scale-105 cursor-pointer shadow-sm"
                       >
                         <LinkedinIcon className="w-4 h-4" />
                         <span>LinkedIn</span>
