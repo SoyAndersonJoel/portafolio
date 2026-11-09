@@ -40,10 +40,10 @@ export async function POST(req: Request) {
       message: "Mensaje enviado y guardado correctamente",
       data,
     })
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Contact API error:", error)
     return NextResponse.json(
-      { error: "Error interno del servidor" },
+      { error: "Error interno del servidor", details: error instanceof Error ? error.message : "Desconocido" },
       { status: 500 }
     )
   }

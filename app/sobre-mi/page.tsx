@@ -3,16 +3,9 @@ import Link from "next/link"
 import {
   MapPin,
   Mail,
-  Calendar,
-  Briefcase,
-  GraduationCap,
   CheckCircle2,
   Globe,
   ArrowRight,
-  Code2,
-  Terminal,
-  Layers,
-  Sparkles,
 } from "lucide-react"
 import { GithubIcon, LinkedinIcon } from "@/components/icons"
 import { portfolioData } from "@/data/portfolio"
@@ -24,7 +17,7 @@ export const metadata: Metadata = {
 }
 
 export default function SobreMiPage() {
-  const { personal, experience, education, languages } = portfolioData
+  const { personal, education, languages } = portfolioData
 
   const techCategories = [
     {

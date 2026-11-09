@@ -61,9 +61,9 @@ export function ContactClient() {
       }
 
       setStatus("success")
-    } catch (err: any) {
+    } catch (err: unknown) {
       setStatus("error")
-      setErrorMsg(err.message || "Error al conectar. Puedes escribirme directo por WhatsApp o Gmail.")
+      setErrorMsg(err instanceof Error ? err.message : "Error al conectar. Puedes escribirme directo por WhatsApp o Gmail.")
     }
   }
 

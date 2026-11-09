@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { ArrowUpRight, Bot, Cpu, Sparkles, CheckCircle2, Terminal } from "lucide-react"
+import { ArrowUpRight, Bot, Cpu, Sparkles, CheckCircle2 } from "lucide-react"
 import { GithubIcon } from "@/components/icons"
 import { portfolioData, Project } from "@/data/portfolio"
 

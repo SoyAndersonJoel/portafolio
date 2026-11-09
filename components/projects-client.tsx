@@ -3,7 +3,6 @@
 import * as React from "react"
 import {
   Bot,
-  Cpu,
   Sparkles,
   ArrowUpRight,
   ShieldCheck,
@@ -16,10 +15,8 @@ import {
   Code2,
   Workflow,
   Search,
-  Filter,
 } from "lucide-react"
 import { GithubIcon } from "@/components/icons"
-import { portfolioData, Project } from "@/data/portfolio"
 
 interface CaseStudy {
   id: string
@@ -463,7 +460,7 @@ export function ProjectsClient() {
 
       {/* Case Studies List */}
       <div className="space-y-16">
-        {filteredProjects.map((project, index) => (
+        {filteredProjects.map((project) => (
           <article
             key={project.id}
             id={project.id}

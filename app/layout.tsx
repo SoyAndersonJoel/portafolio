@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { TooltipProvider } from "@/components/ui/tooltip";
 import { AppShell } from "@/components/app-shell";
 
 const dmSans = DM_Sans({
@@ -32,11 +31,9 @@ export default function RootLayout({
           forcedTheme="dark"
           disableTransitionOnChange
         >
-          <TooltipProvider>
-            <AppShell>
-              {children}
-            </AppShell>
-          </TooltipProvider>
+          <AppShell>
+            {children}
+          </AppShell>
         </ThemeProvider>
       </body>
     </html>

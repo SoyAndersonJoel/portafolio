@@ -8,11 +8,7 @@ import { portfolioData } from "@/data/portfolio"
 
 export function Footer() {
   const { personal } = portfolioData
-  const [currentYear, setCurrentYear] = React.useState("2026")
-
-  React.useEffect(() => {
-    setCurrentYear(new Date().getFullYear().toString())
-  }, [])
+  const currentYear = 2026
 
   return (
     <footer className="w-full bg-black text-white relative z-20 border-t border-white/10">
